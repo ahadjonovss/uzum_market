@@ -19,10 +19,11 @@ class _MainPageState extends State<MainPage> {
   int currentPage=0;
   @override
   Widget build(BuildContext context) {
+    List myCart=[];
     List pages=[
-      HomePage(),
+      HomePage(myCart: myCart),
       SearchPage(),
-      ShoppingBasketPage(),
+      ShoppingBasketPage(myCart: myCart),
       FavouritesPage(),
       AccountPage(),
     ];

@@ -1,12 +1,14 @@
 
+
 import 'package:flutter/material.dart';
 import 'package:uzum_market/pages/home/tab/tabs/widgets/widgets.dart';
 
 import '../../../../../data/models/product_model.dart';
 
 class productInBasket_widget extends StatefulWidget {
+  VoidCallback ondeleted;
   Product product;
-  productInBasket_widget({required this.product,Key? key}) : super(key: key);
+  productInBasket_widget({required this.ondeleted,required this.product,Key? key}) : super(key: key);
 
   @override
   State<productInBasket_widget> createState() => _productInBasket_widgetState();
@@ -49,7 +51,7 @@ class _productInBasket_widgetState extends State<productInBasket_widget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 16),
-              text(widget.product.title,
+              text(widget.product.title.substring(0,18),
                   clr: Colors.black,
                   fontweight: FontWeight.w600
               ),
@@ -57,18 +59,8 @@ class _productInBasket_widgetState extends State<productInBasket_widget> {
               text("\$ ${widget.product.price.toDouble()}",fontweight: FontWeight.w600),
               sized(h: 8),
               InkWell(
-                  onTap: (){
-                    widget.product.count++;
-                    widget.product.isLiked=false;
-                    final snackBar = SnackBar(
-                      content: Text("${widget.product.title} added to Shop Basket!"),
-                      duration: const Duration(milliseconds: 700),
-                    );
-
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
-                  },
-                  child: text("Add to basket",fontweight: FontWeight.w600))
+                  onTap: widget.ondeleted,
+                  child: text("Delete",fontweight: FontWeight.w600,clr: Colors.red))
             ],
           )
 

@@ -7,7 +7,8 @@ import 'package:uzum_market/pages/home/tab/tabs/widgets/page_view_widget.dart';
 import 'package:uzum_market/pages/home/tab/tabs/widgets/product_widget.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  List myCart;
+  HomePage({required this.myCart,Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -74,6 +75,7 @@ class _HomePageState extends State<HomePage> {
                                   crossAxisCount: 2, childAspectRatio: 0.5),
                               itemBuilder: (context, index) => ProductWidget(
                                 product: products[index],
+                                myCart: widget.myCart,
                               ),
                               itemCount: products!.length,
                             );
@@ -95,6 +97,7 @@ class _HomePageState extends State<HomePage> {
                                   crossAxisCount: 2, childAspectRatio: 0.5),
                               itemBuilder: (context, index) => ProductWidget(
                                 product: products[index],
+                                myCart: widget.myCart,
                               ),
                               itemCount: products!.length,
                             );
@@ -116,6 +119,7 @@ class _HomePageState extends State<HomePage> {
                                   crossAxisCount: 2, childAspectRatio: 0.5),
                               itemBuilder: (context, index) => ProductWidget(
                                 product: products[index],
+                                myCart: widget.myCart,
                               ),
                               itemCount: products!.length,
                             );
