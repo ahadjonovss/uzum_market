@@ -28,10 +28,12 @@ class _MainPageState extends State<MainPage> {
     ];
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        title: currentPage!=0?Text("Savat",style: TextStyle(color: Colors.black),):Text(""),
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
-          Center(
+          currentPage==0?Center(
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 18),
               height: m_w(context)*0.08,
@@ -60,7 +62,7 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
             ),
-          )
+          ):Container()
         ],
         
       ),
